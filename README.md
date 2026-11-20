@@ -46,5 +46,5 @@ Basta con duplicar el Prefab del "Robber" en la escena, ya que cada instancia de
 
 ## Trabajo realizado por 
 
-- Angeleau Pierre Jeudi ---> Enlace al Blog:
-- Ejecutable: Descargar la build: 
+- Angeleau Pierre Jeudi ---> Enlace al Blog: [https://anpije.github.io/IA_Behaviour/]
+- Ejecutable: Descargar la build: [(https://github.com/Anpije/AI_Behaviour/releases/latest)]
