@@ -1,4 +1,4 @@
-# AI Behaviours: un ladrón con NavMesh y máquinas de estados
+# IA Behaviours: un ladrón con NavMesh y máquinas de estados
 
 Trabajo de Inteligencia Artificial.
 
