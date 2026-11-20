@@ -7,12 +7,12 @@ Trabajo de Inteligencia Artificial.
 La escena tiene un suelo con NavMesh, un árbol, varios obstáculos que son unos cubos y dos cápsulas: un policía "Cop", que se controla en primera persona con WASD, y un ladrón "Robber", que es el NPC. El objetivo es dar al ladrón movimiento autónomo mediante behaviours, que se activan con el teclado.
 
 Tecla	   | Comportamiento
-P	Pursue:  hace que el Robber perdiga al Cop
-E	Evade:   huye de donde estará el Cop
-R	Wander:  deambula de forma controlada
-H	Hide:    se esconde detrás de un obstáculo
-C	Complex: combina todo lo anterior
-I	Idle:    se queda parado
+- P	Pursue:  hace que el Robber perdiga al Cop
+- E	Evade:   huye de donde estará el Cop
+- R	Wander:  deambula de forma controlada
+- H	Hide:    se esconde detrás de un obstáculo
+- C	Complex: combina todo lo anterior
+- I	Idle:    se queda parado
 
 [Vista general de la escena con el Cop y los Robber]
 <img width="1867" height="813" alt="image" src="https://github.com/user-attachments/assets/c2e53d54-1d39-4110-b387-eb54ff7bd285" />
@@ -76,7 +76,7 @@ Se coloca justo detrás hideMargin y elige el escondite más cercano a él, por 
 <img width="1920" height="1080" alt="Hide" src="https://github.com/user-attachments/assets/1c8de161-c70d-455d-b7a0-ebca97a96792" />
 
 
-## 4. Comportamiento complejo (tecla C)
+## 4. Comportamiento complejo
 
 El ladrón se acerca al policía cuando este no lo mira, pero huye y se esconde cuando lo ve. Si están muy lejos, simplemente deambula. Es una sub-máquina de tres estados:
 
