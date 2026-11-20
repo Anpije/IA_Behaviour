@@ -44,10 +44,13 @@ Vector3 predicted = target.position + targetVelocity * lookAhead;
       lastTargetPos = target.transform.position;
   }
   
-[GIF: Pursue interceptando al Cop] [GIF: Evade]
+[GIF: Pursue interceptando al Cop] 
 <img width="1920" height="1080" alt="ezgif com-optimize (1)" src="https://github.com/user-attachments/assets/89aad23a-747e-45ac-b6ce-41d789744758" />
 
-- Wander: El movimiento es aleatorio, pero no tanto como para cambiar de dirección a cada momento. Se usa un círculo imaginario delante del NPC con tres parámetros:
+[GIF: Evade]
+<img width="1920" height="1080" alt="ezgif com-optimize (2)" src="https://github.com/user-attachments/assets/ce0e87c1-b67a-47bf-863c-b861ec292b9a" />
+
+- Wander: El movimiento es aleatorio, pero no tanto como para cambiar de dirección a cada momento. Se usa un círculo delante del NPC con tres parámetros:
 
 wanderDistance: distancia del NPC al centro del círculo.
 wanderRadius: radio del círculo.
@@ -59,7 +62,10 @@ wanderTarget = wanderTarget.normalized * wanderRadius;
 
 Si el punto cae fuera del NavMesh, el Robber se dirige hacia el centro del mundo para no quedarse pegado al borde.
 
-[GIF: Wander con el gizmo del círculo]
+[GIF: Wander]
+<img width="1920" height="1080" alt="ezgif com-optimize (3)" src="https://github.com/user-attachments/assets/c3cc928f-a086-4ff7-b32f-dc77edb0100d" />
+<img width="1920" height="1080" alt="ezgif com-optimize (5)" src="https://github.com/user-attachments/assets/ad88bdf3-1bbc-4ebf-ab43-ea5b4a06ad51" />
+
 
 - Hide: La primera versión "Hide" coloca al ladrón a una distancia fija detrás del obstáculo. Pero eso falla con objetos de distinto tamaño, así que la versión final es CleverHide.
 
@@ -67,6 +73,8 @@ Para cada obstáculo con el tag "hide", calcula la dirección Cop -> obstáculo.
 Se coloca justo detrás hideMargin y elige el escondite más cercano a él, por lo que funciona igual con una caja pequeña, una grande o el árbol.
 
 [GIF: Hide con obstáculos]
+<img width="1920" height="1080" alt="Hide" src="https://github.com/user-attachments/assets/1c8de161-c70d-455d-b7a0-ebca97a96792" />
+
 
 ## 4. Comportamiento complejo (tecla C)
 
@@ -76,7 +84,7 @@ Sub-máquina de Complex
 <img width="1089" height="610" alt="image" src="https://github.com/user-attachments/assets/fe7250ff-62c0-40da-bb3d-28b03299ab1e" />
 <img width="1081" height="608" alt="image" src="https://github.com/user-attachments/assets/a28a3a52-e555-43ef-9588-e88fa0caba1f" />
 
-Percepción:
+### Percepción:
 
 CanSeeTarget(): línea de visión del robber hacia el cop (con raycast).
 TargetCanSeeMe(): el Robber está dentro del ángulo de visión del Cop y no hay nada en medio.
@@ -90,18 +98,17 @@ Un ladrón que cambia de Pursue a Flee en cada frame parece nervioso y poco cre�
 Dentro de Hide, si el Cop está muy cerca panicDistance, el Robber hace Evade. Si no, se esconde con CleverHide.
 
 [GIF: Complex: wander, pursue, hide, espera, pursue]
+<img width="1920" height="1080" alt="ezgif com-cut" src="https://github.com/user-attachments/assets/c3f97e00-ac92-4b7e-b396-0ae927d5d322" />
 
 ## 5. Varios NPCs
 
 Duplique al Robber en varios, donde cada instancia decide por sí misma, así que si están cerca, se esconden en el mismo sitio, pero si estaban lejos unos de otros, cada uno elige el escondite más cercano a su posición.
-
-[Captura: instancias NPCs multiples]
 
 ## 6. Problemas y aprendizajes
 Nerviosismo en Wander: el jitter se aplica en cada frame, así que el resultado depende de los FPS. Se arregla ajustando wanderJitter, wanderDistance y la velocidad angular del agente.
 Bordes del NavMesh: Flee y Wander pueden mandar al agente fuera del mapa. Hay que sacar el punto más cercano del NavMesh y, si se choca con el borde, escapar hacia un lado o hacia el centro.
 Obstáculos: tienen que estar bakeados en el NavMesh y con un NavMeshObstacle llevando el tag hide y un collider.
 
-Para Descargar el ejecutable desde aquí:
+Para Descargar el ejecutable desde aquí: [(https://github.com/Anpije/AI_Behaviour/releases/latest)]
 
-Repositorio:[https://github.com/Anpije/IA_Behaviour.git]
+Repositorio: [https://github.com/Anpije/IA_Behaviour.git]
